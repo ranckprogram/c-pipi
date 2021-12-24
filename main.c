@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
+#include <math.h>
 #include "tool.h"
-
 
 // 函数申明
 int sum();
@@ -57,21 +57,30 @@ void pointerStruce()
   printf("getPersonAge %d", getPersonAge(&ranck));
 }
 
+float execute(float base, float offset, float rate, int time)
+{
+  float result = 0;
+  result = base * pow((1 + rate), time) + offset * pow((1 + rate), time - 1) + offset * (time - 1);
+  return result;
+}
+
 int main()
 {
-  /* 我的第一个 C 程序 */
-  printf("Hello, World! \n");
-  int a = sum();
-  printf("Max value is : %d\n", a);
-  printf("num add : %d\n", sumN(10));
+  // /* 我的第一个 C 程序 */
+  // printf("Hello, World! \n");
+  // int a = sum();
+  // printf("Max value is : %d\n", a);
+  // printf("num add : %d\n", sumN(10));
 
-  printf("num add : %d\n", sumN(10));
+  // printf("num add : %d\n", sumN(10));
 
-  // printf("function import %d", test());
+  // // printf("function import %d", test());
 
-  point();
-  testStruct();
-  pointerStruce();
+  // point();
+  // testStruct();
+  // pointerStruce();
+
+  printf("result %f", execute(0, 10, 0, 10));
   return 0;
 }
 
